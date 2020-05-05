@@ -22,4 +22,4 @@ _start:
 	pop rsi
 	mov r8, rdx 
 	mov r10, rdx 
-  syscall
+  	syscall
