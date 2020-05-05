@@ -17,4 +17,4 @@ _start:
 	inc sil
 	
 	mov edi, 0xfee1dead
-  syscall 
+ 	syscall 
