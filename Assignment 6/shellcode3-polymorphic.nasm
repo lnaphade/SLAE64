@@ -6,7 +6,6 @@ section .text
 _start:
 
 ; syscall open file
-	
 	push 0x01647773               ; 0x01 + dws
   	mov rbx, 0x7361702f6374652f   ; sap/cte/
 	push rbx
@@ -19,7 +18,6 @@ _start:
 	syscall
 	
 ; syscall read file
-	
 	sub sp, 0xfff
   	lea rsi, [rsp]
   	mov rdi, rax
