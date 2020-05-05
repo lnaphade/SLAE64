@@ -4,7 +4,7 @@
 global _start
 section .text
 
-egg equ 'W00T'                ; for easy configuration
+egg equ 'W00T'                      ; for easy configuration
 
 _start:
 	  xor rsi, rsi              ; zeroize RSI register
@@ -28,4 +28,4 @@ search:
 	  jnz next_address
 
 execution:
-    jmp rdi                   ; egg found
+    jmp rdi                         ; egg found
